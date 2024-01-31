@@ -12,7 +12,7 @@ function Box(props) {
     <Select enabled={hovered}>
       <mesh ref={ref} {...props} onPointerOver={() => hover(true)} onPointerOut={() => hover(false)}>
         <boxGeometry />
-        <meshStandardMaterial color="orange" />
+        <meshStandardMaterial color="red" />
       </mesh>
     </Select>
   )
