@@ -39,11 +39,11 @@ function Box(props) {
   useFrame((state, delta) => {
     ref.current.rotation.x = ref.current.rotation.y += delta;
     if (clicked && xyz.x < -0.25) {
-      ref.current.position.x += delta
+      ref.current.position.x += delta*5
     }
     if (clicked && xyz.x > 0.25) {
       console.log(position)
-      ref.current.position.x -= delta
+      ref.current.position.x -= delta*5
     }
     if (clicked && xyz.y < -0.25) {
       ref.current.position.y += delta
