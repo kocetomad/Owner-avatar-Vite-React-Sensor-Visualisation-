@@ -21,16 +21,16 @@ function Box(props) {
   useFrame((state, delta) => {
     ref.current.rotation.x = ref.current.rotation.y += delta;
     if (clicked) {
-      if (getAcceState.x > 0.1) {
+      if (xyz.x > 0.1) {
         ref.current.position.x = ref.current.position.x + delta;
       }
-      if (getAcceState.x < -0.1) {
+      if (xyz.x < -0.1) {
         ref.current.position.x = ref.current.position.x - delta;
       }
-      if (getAcceState.y > 0.1) {
+      if (xyz.y > 0.1) {
         ref.current.position.x = ref.current.position.y + delta;
       }
-      if (getAcceState.y < -0.1) {
+      if (xyz.y < -0.1) {
         ref.current.position.x = ref.current.position.y - delta;
       }
     }
