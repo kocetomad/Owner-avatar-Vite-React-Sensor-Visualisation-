@@ -1,7 +1,7 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
-import Accelerometer from "./components/Accelerometer";
+import { Accelerometer } from "./components/Accelerometer";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import {
@@ -13,20 +13,26 @@ import {
 import GridOfBoxes from "./components/Grid"
 import Box from "./components/Box";
 import "./App.css";
+import {
+  RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+} from 'recoil';
 
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
-    <>
+    <RecoilRoot>
       <section className="App-header">
         {/* Canvas 1 */}
         <Accelerometer />
         <div style={{height: "50vh", backgroundColor: "#53474e"}}>
         <Canvas>
-          <ambientLight intensity={3} />
-          <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-          <pointLight position={[-10, -10, -10]} />
+        <ambientLight intensity={Math.PI / 2} />
+        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
+      <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
           <Selection>
             <EffectComposer multisampling={8} autoClear={false}>
               <Outline
@@ -51,7 +57,7 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
-    </>
+      </RecoilRoot>
   );
 }
 
