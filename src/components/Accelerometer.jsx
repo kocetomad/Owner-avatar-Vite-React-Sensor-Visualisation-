@@ -24,20 +24,26 @@ const Accelerometer = () => {
   const [acceleration, setAcceleration] = useRecoilState(acceState);
 
   useEffect(() => {
-    const handleMotion = (event) => {
-      const { x, y, z } = event.acceleration;
-      if(acceleration.x > 0.25 && x > 0){
+    // Check if the Accelerometer API is supported
+    if (typeof Accelerometer === 'function') {
+      const accelerometer = new Accelerometer({ frequency: 60 });
+
+      const handleMotion = (event) => {
+        const { x, y, z } = event;
         setAcceleration({ x, y, z });
-      }
+      };
 
-    };
+      accelerometer.addEventListener('reading', handleMotion);
+      accelerometer.start();
 
-    window.addEventListener("devicemotion", handleMotion);
-
-    return () => {
-      window.removeEventListener("devicemotion", handleMotion);
-    };
-  }, []);
+      return () => {
+        accelerometer.removeEventListener('reading', handleMotion);
+        accelerometer.stop();
+      };
+    } else {
+      console.error('Accelerometer API is not supported in this browser.');
+    }
+  }, [setAcceleration]);
 
   return (
     <div>
@@ -55,4 +61,4 @@ const Accelerometer = () => {
   );
 };
 
-export { Accelerometer,acceState,getAcceState };
+export { Accelerometer, acceState, getAcceState };
