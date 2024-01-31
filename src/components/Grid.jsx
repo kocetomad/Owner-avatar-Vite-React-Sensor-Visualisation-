@@ -10,7 +10,7 @@ const GridOfBoxes = () => {
       const position = [i * -2, j * -2, 0]; // Adjust the spacing as needed
       const key = `box_${i}_${j}`;
 
-      boxComponents.push(<Box key={key} position={position} />);
+      boxComponents.push(<Box key={key} position={position} scale={1}/>);
     }
   }
 
