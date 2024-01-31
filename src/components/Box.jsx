@@ -15,17 +15,28 @@ function Box(props) {
   const ref = useRef();
   const [hovered, hover] = useState(null);
   const [clicked, click] = useState(false);
-  const xyz = useRecoilValue(getAcceState)
+  const xyz = useRecoilValue(getAcceState);
 
   console.log(hovered);
-  useFrame(
-    (state, delta) => {(ref.current.rotation.x = ref.current.rotation.y += delta)
-    if(clicked){
-      console.log(xyz)
+  useFrame((state, delta) => {
+    ref.current.rotation.x = ref.current.rotation.y += delta;
+    if (clicked) {
+      if (getAcceState.x > 0.1) {
+        ref.current.position.x = ref.current.position.x + delta;
+      }
+      if (getAcceState.x < -0.1) {
+        ref.current.position.x = ref.current.position.x - delta;
+      }
+      if (getAcceState.y > 0.1) {
+        ref.current.position.x = ref.current.position.y + delta;
+      }
+      if (getAcceState.y < -0.1) {
+        ref.current.position.x = ref.current.position.y - delta;
+      }
     }
-    });
+  });
   return (
-    <Select enabled={hovered}>
+    <Select enabled={clicked}>
       <mesh
         ref={ref}
         {...props}
