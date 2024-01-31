@@ -26,7 +26,10 @@ const Accelerometer = () => {
   useEffect(() => {
     const handleMotion = (event) => {
       const { x, y, z } = event.acceleration;
-      setAcceleration({ x, y, z });
+      if(acceleration.x > 0.25 && x > 0){
+        setAcceleration({ x, y, z });
+      }
+
     };
 
     window.addEventListener("devicemotion", handleMotion);
