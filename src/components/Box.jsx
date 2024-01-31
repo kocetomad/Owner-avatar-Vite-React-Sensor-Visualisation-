@@ -16,9 +16,25 @@ function Box(props) {
   const ref = useRef();
   const [hovered, hover] = useState(null);
   const [clicked, click] = useState(false);
+  const [colour, setColour] = useState("red");
   const xyz = useRecoilValue(getAcceState);
   const { position,scale } = props;
- 
+  
+  const unselect = () => {
+    const colors = ["yellow", "green", "purple", "blue", "orange", "white"];
+    const randomIndex = Math.floor(Math.random() * colors.length);
+    const selectedColor = colors[randomIndex];
+    setColour(selectedColor);
+  };
+  useEffect(() => {
+    if(clicked == false){
+      unselect()
+    }
+  }, [clicked])
+  useEffect(() => {
+    setColour("red");
+  }, [])
+  
   console.log(hovered);
   useFrame((state, delta) => {
     ref.current.rotation.x = ref.current.rotation.y += delta;
@@ -62,7 +78,7 @@ function Box(props) {
         onClick={(event) => click(!clicked)}
       >
         <boxGeometry />
-        <meshStandardMaterial color="red" />
+        <meshStandardMaterial color={colour} />
       </mesh>
     </Select>
   );
