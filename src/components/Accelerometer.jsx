@@ -27,11 +27,11 @@ const Accelerometer = () => {
 
     const handleMotion = (event) => {
       time+=event.interval
-      const { x, y, z } = event.acceleration;
+      const { x, y, z } = event.accelerationIncludingGravity;
       if(time>=100){
-        setAcceleration({ x, y, z });
         time = 0;
       }
+      setAcceleration({ x, y, z });
     };
 
     window.addEventListener("devicemotion", handleMotion);
