@@ -23,9 +23,15 @@ const getAcceState = selector({
 const Accelerometer = () => {
   const [acceleration, setAcceleration] = useRecoilState(acceState);
   useEffect(() => {
+    let time = 0;
+
     const handleMotion = (event) => {
+      time+=event.interval
       const { x, y, z } = event.acceleration;
-      setAcceleration({ x, y, z });
+      if(time>=100){
+        setAcceleration({ x, y, z });
+        time = 0;
+      }
     };
 
     window.addEventListener("devicemotion", handleMotion);
