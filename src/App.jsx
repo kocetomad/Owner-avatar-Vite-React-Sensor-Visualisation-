@@ -3,6 +3,7 @@ import viteLogo from "/vite.svg";
 import { Accelerometer } from "./components/Accelerometer";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import AccelerometerChecker from "./components/AccelerometerChecker";
 import {
   Selection,
   EffectComposer,
@@ -20,6 +21,7 @@ function App() {
     <RecoilRoot>
       <section className="App-header">
         {/* Canvas 1 */}
+        <AccelerometerChecker/>
         <Accelerometer />
         <h2>You can rotate zoom and move the 3D canvas</h2>
         <div style={{height: "80vh", backgroundColor: "#53474e"}}>

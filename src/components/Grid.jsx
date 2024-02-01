@@ -1,5 +1,9 @@
 import Box from './Box'; // Replace with the correct import path
 
+export function sum(a, b) {
+  return a + b
+}
+
 const GridOfBoxes = () => {
   const gridSize = 10;
   const boxComponents = [];

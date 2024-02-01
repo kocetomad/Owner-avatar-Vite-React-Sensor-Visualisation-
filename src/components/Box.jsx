@@ -8,6 +8,10 @@ import {
   Select,
 } from "@react-three/postprocessing";
 
+export function sum(a, b) {
+  return a + b
+}
+
 function Box(props) {
   const ref = useRef();
   const [hovered, hover] = useState(null);
@@ -16,6 +20,8 @@ function Box(props) {
   const xyz = useRecoilValue(getAcceState);
   const { position,scale } = props;
   
+  
+
   const unselect = () => {
     const colors = ["yellow", "green", "purple", "blue", "orange", "white"];
     const randomIndex = Math.floor(Math.random() * colors.length);
@@ -48,13 +54,13 @@ function Box(props) {
       console.log(position)
       ref.current.position.y -= delta*10
     }
-    if (clicked && xyz.z < -3) {
+    if (clicked && xyz.z < -1.5) {
       console.log(position)
       ref.current.scale.x -= delta/2
       ref.current.scale.y -= delta/2
       ref.current.scale.z -= delta/2
     }
-    if (clicked && xyz.z > 3) {
+    if (clicked && xyz.z > 1.5) {
       console.log(position)
       ref.current.scale.x += delta/2
       ref.current.scale.y += delta/2
