@@ -41,29 +41,29 @@ function Box(props) {
     if (clicked && xyz.x < -0.25) {
       ref.current.position.x += delta*5
     } 
-    else if (clicked && xyz.x > 0.25) {
-      console.log(position)
-      ref.current.position.x -= delta*5
-    }
-    if (clicked && xyz.y < -0.25) {
-      ref.current.position.y += delta
-    }
-    if (clicked && xyz.y > 0.25) {
-      console.log(position)
-      ref.current.position.y -= delta
-    }
-    if (clicked && xyz.z < -0.25) {
-      console.log(position)
-      ref.current.scale.x -= delta/5
-      ref.current.scale.y -= delta/5
-      ref.current.scale.z -= delta/5
-    }
-    if (clicked && xyz.z > 0.25) {
-      console.log(position)
-      ref.current.scale.x += delta/5
-      ref.current.scale.y += delta/5
-      ref.current.scale.z += delta/5
-    }
+    // else if (clicked && xyz.x > 0.25) {
+    //   console.log(position)
+    //   ref.current.position.x -= delta*5
+    // }
+    // if (clicked && xyz.y < -0.25) {
+    //   ref.current.position.y += delta
+    // }
+    // if (clicked && xyz.y > 0.25) {
+    //   console.log(position)
+    //   ref.current.position.y -= delta
+    // }
+    // if (clicked && xyz.z < -0.25) {
+    //   console.log(position)
+    //   ref.current.scale.x -= delta/5
+    //   ref.current.scale.y -= delta/5
+    //   ref.current.scale.z -= delta/5
+    // }
+    // if (clicked && xyz.z > 0.25) {
+    //   console.log(position)
+    //   ref.current.scale.x += delta/5
+    //   ref.current.scale.y += delta/5
+    //   ref.current.scale.z += delta/5
+    // }
     
   });
   return (
