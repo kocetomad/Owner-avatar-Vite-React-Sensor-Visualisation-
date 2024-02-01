@@ -27,7 +27,7 @@ const Accelerometer = () => {
 
     const handleMotion = (event) => {
       time+=event.interval
-      const { x, y, z } = event.accelerationIncludingGravity;
+      const { x, y, z } = event.acceleration;
       if(time>=100){
         time = 0;
       }
