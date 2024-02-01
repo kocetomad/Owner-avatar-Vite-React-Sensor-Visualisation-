@@ -1,8 +1,7 @@
-import React from 'react';
 import Box from './Box'; // Replace with the correct import path
 
 const GridOfBoxes = () => {
-  const gridSize = 4;
+  const gridSize = 10;
   const boxComponents = [];
 
   for (let i = 0; i < gridSize; i++) {

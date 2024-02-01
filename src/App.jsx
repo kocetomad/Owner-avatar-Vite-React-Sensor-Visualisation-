@@ -1,4 +1,3 @@
-import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import { Accelerometer } from "./components/Accelerometer";
@@ -6,19 +5,13 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import {
   Selection,
-  Select,
   EffectComposer,
   Outline,
 } from "@react-three/postprocessing";
 import GridOfBoxes from "./components/Grid"
-import Box from "./components/Box";
 import "./App.css";
 import {
-  RecoilRoot,
-  atom,
-  selector,
-  useRecoilState,
-  useRecoilValue,
+  RecoilRoot
 } from 'recoil';
 
 function App() {
@@ -28,7 +21,8 @@ function App() {
       <section className="App-header">
         {/* Canvas 1 */}
         <Accelerometer />
-        <div style={{height: "50vh", backgroundColor: "#53474e"}}>
+        <h2>You can rotate zoom and move the 3D canvas</h2>
+        <div style={{height: "80vh", backgroundColor: "#53474e"}}>
         <Canvas>
         <ambientLight intensity={Math.PI / 2} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
@@ -55,8 +49,14 @@ function App() {
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
+        <a href="https://recoiljs.org/" target="_blank">
+          <img src="https://cdn.worldvectorlogo.com/logos/recoil-js.svg" className="logo react" alt="Recoil logo" />
+        </a>
+        <a href="https://docs.pmnd.rs/react-three-fiber/getting-started/introduction" target="_blank">
+          <img src="https://global.discourse-cdn.com/standard17/uploads/threejs/original/2X/e/e4f86d2200d2d35c30f7b1494e96b9595ebc2751.png" className="logo react" alt="Three logo" />
+        </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1>Vite + React + RecoilJS + React Three Fiber</h1>
       </RecoilRoot>
   );
 }

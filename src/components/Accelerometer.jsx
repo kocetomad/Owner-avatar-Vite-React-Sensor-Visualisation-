@@ -1,10 +1,8 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import {
-  RecoilRoot,
   atom,
   selector,
   useRecoilState,
-  useRecoilValue,
 } from "recoil";
 
 const acceState = atom({
@@ -28,9 +26,7 @@ const Accelerometer = () => {
     const handleMotion = (event) => {
       time+=event.interval
       const { x, y, z } = event.acceleration;
-      if(time>=100){
-        time = 0;
-      }
+     
       setAcceleration({ x, y, z });
     };
 
