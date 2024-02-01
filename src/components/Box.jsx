@@ -38,10 +38,10 @@ function Box(props) {
   console.log(hovered);
   useFrame((state, delta) => {
     ref.current.rotation.x = ref.current.rotation.y += delta;
-    if (clicked && xyz.x < -0.25) {
+    if (clicked && xyz.x < -0.5) {
       ref.current.position.x += delta*5
     } 
-    else if (clicked && xyz.x > 0.25) {
+    else if (clicked && xyz.x > 0.5) {
       console.log(position)
       ref.current.position.x -= delta*5
     }
